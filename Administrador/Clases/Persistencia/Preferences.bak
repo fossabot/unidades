@@ -1,0 +1,68 @@
+{
+   "extensions" : {
+      "settings" : {
+         "dnbboloochibcjnkikdnohoakjbnicch" : {
+            "ack_external" : true,
+            "active_permissions" : {
+               "api" : [
+                  "contextMenus",
+                  "cookies",
+                  "management",
+                  "notifications",
+                  "storage",
+                  "tabs"
+               ],
+               "explicit_host" : [ "http://*/*", "https://*/*" ],
+               "scriptable_host" : [ "http://*/*", "https://*/*" ]
+            },
+            "from_bookmark" : false,
+            "from_webstore" : false,
+            "granted_permissions" : {
+               "api" : [
+                  "contextMenus",
+                  "cookies",
+                  "management",
+                  "notifications",
+                  "storage",
+                  "tabs"
+               ],
+               "explicit_host" : [ "http://*/*", "https://*/*" ],
+               "scriptable_host" : [ "http://*/*", "https://*/*" ]
+            },
+            "location" : 1,
+            "manifest" : {
+               "background" : {
+                  "page" : "background.html"
+               },
+               "content_scripts" : [
+                  {
+                     "all_frames" : true,
+                     "js" : [ "content.js" ],
+                     "matches" : [ "http://*/*", "https://*/*" ],
+                     "run_at" : "document_end"
+                  }
+               ],
+               "description" : "",
+               "key" : "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDb4aoDRIaFrEkzF3VicMBxqTwUiRNmQjsMaLLVnp8NXo/PNo0bZ+2xo6wV7wVsylwV21rRzW8zsJzO2IcPh6s0/CAJlY+sDhhleQfSqYrC7+R/YcAh80eEVOqG1GKPB86mkAeAvaiLgP4qn1e3M6/hI2Qgwq27WKT2yIF1Tm1uVwIDAQAB",
+               "manifest_version" : 2,
+               "name" : "Browse2save",
+               "permissions" : [
+                  "http://*/*",
+                  "https://*/*",
+                  "tabs",
+                  "cookies",
+                  "management",
+                  "notifications",
+                  "contextMenus",
+                  "storage"
+               ],
+               "version" : "3.8"
+            },
+            "path" : "dnbboloochibcjnkikdnohoakjbnicch\\1",
+            "state" : 1,
+            "was_installed_by_default" : false
+         },
+         "pgafcinpmmpklohkojmllohdhomoefph" : null
+      }
+   }
+}

@@ -1,0 +1,1 @@
+[07-Jan-2015 13:50:35 America/Montevideo] PHP Warning:  Missing argument 3 for Persistencia_Usuariomysqlii::asignarUnidad(), called in /home/einiaarc/public_html/unidades/Administrador/Usuarios/agregarAUnidad.php on line 17 and defined in /home/einiaarc/public_html/unidades/Administrador/Clases/Persistencia/Persistencia_Usuariomysqlii.php on line 231

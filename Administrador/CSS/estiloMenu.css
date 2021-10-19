@@ -1,0 +1,270 @@
+body {border: 1x solid black;}
+
+html {
+background:   #EBEBEB;
+}
+
+.marco {	
+    width: 100%;	
+	min-height:900px;	
+	z-index:1;
+	background:#EBEBEB;
+}
+
+.imagen{
+	 position:absolute;
+	padding:0px;
+	margin-left:0px;  margin-right:0px;
+	margin-top:0px;
+	max-height:13%;
+	max-width:13%;
+
+}
+#datosU{
+	position:absolute;
+	left:84%;
+	color: #666;
+    font: bold 19px/19px Arial, Helvetica;
+	box-shadow:1px 1px 1px 1px  #E8E8E8;
+	}
+/*****MENU1********/
+
+#menu {
+	top:0px;
+	text-align:center;
+	font: bold 12px/12px Arial, Helvetica;	
+    background-color: #EBEBEB;  
+	}
+
+
+#menu li {
+	display: inline-block;
+    position: relative;
+	padding:1px;
+}
+
+#menu li  hover{
+	
+}
+
+#menu ul li {
+ margin:2px;
+padding:3px;
+position:relative;
+top:5px;
+width:180px;
+}
+
+
+#menu ul li:last-child {    
+}
+
+#menu ul li a {    
+    padding: 0px;
+    line-height: 1;
+    display: inline-block;
+    float: none;
+}
+
+#menu a {
+    display:inline-block;
+    color: #000;
+    font: bold 15px/15px Arial, Helvetica;
+    text-decoration: none;
+}
+
+
+
+#menu li:hover > a {
+	color:#036;
+  
+}
+
+*html #menu li a:hover { /* IE6 */
+    color:#036;
+	
+}
+
+#menu li:hover > ul {	 
+	border: 1x solid #036;
+    display: block;
+}
+
+/* Sub-menu */
+#menu ul {
+    list-style:  none;
+	padding:1px;
+    display:  none;
+    position: absolute;
+    z-index: 99999;    
+    background-color: #EBEBEB;
+}
+
+#menu ul li {
+height:25px;
+font-size:12px;
+text-align: left;
+width:230px;
+border: 1px solid #666;
+alignment-baseline:central;
+}
+
+
+#menu ul li:last-child { 
+      
+}
+
+#menu ul a {    
+    height: auto;
+    line-height: 1;
+    display:  block;
+    float: none;
+    text-transform: none;
+	
+}
+
+
+
+*html #menu ul a { /* IE6 */   
+    height: 30px;
+    width: 180px;
+}
+
+*:first-child+html #menu ul a { /* IE7 */    
+    height: 30px;
+    width: 180px;
+}
+
+
+#menu ul li:hover {
+    color:#036;
+	background-color:#B7DBFF;
+border: 1px solid #036;
+}
+
+#menu ul li:first-child a {
+    border-radius: 1px 1px 0 0;
+}
+
+#menu ul li:first-child a:after {
+    content: '';
+    position: absolute;
+    left: auto;
+    top: 35px;
+    width: 0px;
+    height: 0;
+}
+
+#menu ul li:first-child a:hover:after {
+    border-bottom-color: #036;
+}
+
+#menu ul li:last-child a {
+    border-radius: 0 0 1px 1px;
+}
+
+/* Clear floated elements */
+#menu:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+* html #menu             { zoom: 1; } /* IE6 */
+*:first-child+html #menu { zoom: 1; } /* IE7 */
+
+/*****BOTONES********/
+
+.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #91b8b3;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #91b8b3;
+	box-shadow:inset 0px 1px 0px 0px #91b8b3;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+	background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
+	background-color:#768d87;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2b665e;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+	background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
+	background-color:#6c7c7c;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.botonAct {
+	-moz-box-shadow:inset 0px 1px 3px 0px #3dc21b;
+	-webkit-box-shadow:inset 0px 1px 3px 0px #3dc21b;
+	box-shadow:inset 0px 1px 3px 0px #3dc21b;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #44c767), color-stop(1, #5cbf2a));
+	background:-moz-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
+	background:-webkit-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
+	background:-o-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
+	background:-ms-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
+	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#44c767', endColorstr='#5cbf2a',GradientType=0);
+	background-color:#44c767;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:6px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2b665e;
+}
+.botonAct:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+	background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3C9', endColorstr='#3C9',GradientType=0);
+	background-color: #3C9;
+}
+.boton{
+	width:100%;
+	font-size:24px;
+	-moz-transition-property: color, background-color;
+	-moz-transition-duration: 0.3s, 0.3s;
+	}
+.boton:hover{
+	color:white;
+	-moz-transition-property: color, background-color;
+	-moz-transition-duration: 0.3s, 0.3s;
+	}
+	
+	

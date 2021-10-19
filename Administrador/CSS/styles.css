@@ -1,0 +1,162 @@
+#mapa { position: absolute; background: transparent; height: 100%; width: 100%; left:0; right: 0; bottom: 0;top:0px;}
+
+h1{
+	background: #EBEBEB;
+	border-bottom:1px solid #EEEEEE;
+	font-family:"Myriad Pro",Arial,Helvetica,sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	
+	margin-bottom:15px;	
+	
+	padding:2px;
+	text-align:center;
+	
+	
+} 
+
+.table {
+
+font: 75%/1.5em arial, geneva, sans-serif;
+border-collapse: collapse;
+
+}
+
+.table > td {
+border-bottom: 8px solid #fff;
+border-left: 1px dotted #fff;
+vertical-align: top;
+padding: 20px;
+border-style:groove;
+}
+
+.table > tr {
+background: #b6e5ff; 
+}
+
+#informa{
+	font-family:"Myriad Pro",Arial,Helvetica,sans-serif;
+	font-size:14px;
+	font-weight:normal;	
+	text-align: justify;
+}
+#divRelleno{
+	background: #CECEFF;
+	border-bottom:1px solid #EEEEEE;
+	font-family:"Myriad Pro",Arial,Helvetica,sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	margin-bottom:15px;
+	padding:2px;
+	text-align:center;
+}
+
+
+.windowBox{ position: absolute; left: 50%;  width: 500px; height: 350px; margin: -100px 0 0 -270px;
+-webkit-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);-moz-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);background:#EBEBEB }
+ #link { top:5px;  left:66%;position: absolute;color: #000 ; z-index:1; font-family: 'Marcellus', serif; font-size: 1.1em; font-weight:50%; margin: 0px 0px; box-shadow: 1px 1px 1px 1px  #E9E9E9; text-align:center; height:auto;
+word-wrap: break-word;
+vertical-align:middle;} 
+
+body {    border: 1x solid black; background:#EBEBEB} 
+
+.myButton {
+	border: 1px solid #cccccc;
+padding: 10px;
+color: #ffffff;
+background: #999999;
+font-size: 28px;
+line-height: 30px;
+text-decoration: none;
+
+border-radius: 16px;
+-webkit-border-radius: 16px;
+-moz-border-radius: 16px;
+
+box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+-webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+-moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+
+text-shadow: #000000 0px 1px 1px;
+
+background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#999999));
+background: -moz-linear-gradient(top, #eeeeee, #999999);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#999999');
+}
+.myButton:active {
+box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+-webkit-box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+-moz-box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+position: relative;
+top: 1px;
+left: 1px;
+}
+
+.botonAct{
+	border: 1px solid #cccccc;
+padding: 10px;
+color: #ffffff;
+background: #999999;
+font-size: 28px;
+line-height: 30px;
+text-decoration: none;
+
+border-radius: 16px;
+-webkit-border-radius: 16px;
+-moz-border-radius: 16px;
+
+box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+-webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+-moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+
+text-shadow: #000000 0px 1px 1px;
+
+background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#999999));
+background: -moz-linear-gradient(top, #eeeeee, #999999);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#999999');
+}
+.botonAct:active {
+box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+-webkit-box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+-moz-box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+position: relative;
+top: 1px;
+left: 1px;
+}
+
+
+
+.boton2 {
+border: 1px solid #cccccc;
+padding: 3px;
+color: #ffffff;
+background: #999999;
+font-size: 15px;
+line-height: 15px;
+text-decoration: none;
+
+
+
+box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+-webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+-moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+
+text-shadow: #000000 0px 1px 1px;
+
+background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#999999));
+background: -moz-linear-gradient(top, #eeeeee, #999999);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#999999');
+}
+.boton2:hover {	
+color: #039;
+background: #393;
+}
+.boton2:active {
+box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+-webkit-box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+-moz-box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+position: relative;
+top: 1px;
+left: 1px;
+}

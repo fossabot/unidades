@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registro de Potrero</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <link href="../CSS/estiloTar.css"rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
+        <script language="JavaScript1.2">
+            window.moveTo(0, 0);
+            if (document.all) {
+                top.window.resizeTo(screen.availWidth, screen.availHeight);
+            } else if (document.layers || document.getElementById) {
+                if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
+                    top.window.outerHeight = screen.availHeight;
+                    top.window.outerWidth = screen.availWidth;
+                }
+            }
+        </script>
+        <script>
+
+            var coordenadas;
+            var aux;
+            var n;
+            var pex;
+            var mapa;
+            var tcoord = 0;
+            var area;
+            var predio;
+            var Coords = new Array();
+            var Aux = new Array();
+            var Predios = new Array();
+            var idRegistroPosicion;
+
+            function Iniciar() {
+                document.getElementById("btnIni").className = 'myButton';
+                document.getElementById("botonPC").className = 'botonAct';
+            }
+
+            function registrarPosicion() {
+                idRegistroPosicion = navigator.geolocation.getCurrentPosition(
+                        exitoRegistroPosicion,
+                        falloRegistroPosicion,
+                        {
+                            enableHighAccuracy: true,
+                            maximumAge: 20000,
+                            timeout: 5000
+                        }
+                )
+            }
+
+            function exitoRegistroPosicion(position) {
+                var precision = position.coords.accuracy;
+                document.getElementById("volver").innerHTML = "->VOLVER A INICIO -  Precisión: " + precision + "mts.";
+
+                //Se conrola que la exactitud de la ubicacion sea la mayor posible.
+                if (precision <= 10) {
+                    var lon = position.coords.longitude;
+                    var lat = position.coords.latitude;
+                    tcoord += 1;
+                    coordenadas = coordenadas + " " + lat + " " + lon;
+                    vistaprevia();
+                } else {
+                    idRegistroPosicion = null;
+                    registrarPosicion();
+                }
+            }
+
+            function falloRegistroPosicion() {
+                alert('No se pudo determinar la ubicación');
+            }
+
+            /*************/
+            function vistaprevia() {
+                //document.getElementById("botonG").disabled=false; 	
+
+                var j = 0;
+
+                //Se divide el String de Coordenadas
+                var ss = coordenadas.split(" ");
+                var h = 0;
+                for (i = 1; i < ss.length; i++) {
+                    Aux[h] = ss[i];
+                    h++;
+                }
+
+                //Se creea el mapa centrando vistaen la ubicacion del potrero creado
+                var mapOptions = {
+                    zoom: 18,
+                    center: new google.maps.LatLng(Aux[0], Aux[1]),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+
+                var map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
+
+                var image = {
+                    url: '../Recursos/Imagenes/marcador.png',
+                };
+
+                //Se convierte de String a Decimales y se crean los puntos de coordenadas
+                for (i = 0; i < Aux.length; i++) {
+                    var lat = parseFloat(Aux[i])
+                    var lng = parseFloat(Aux[i + 1]);
+                    Coords [j] = new google.maps.LatLng(lat, lng);
+                    var marker = new google.maps.Marker({
+                        position: Coords [j],
+                        map: map,
+                        icon: image});
+                    j++;
+                    i++;
+                }
+
+                // Se crea un poligono que representara el potrero obtenido
+                predio = new google.maps.Polygon({
+                    paths: Coords,
+                    strokeColor: "#F00",
+                    strokeOpacity: 1,
+                    strokeWeight: 10,
+                    fillOpacity: 1,
+                    editable: true
+                });
+                area = google.maps.geometry.spherical.computeArea(predio.getPath());
+                predio.setMap(map);
+            }
+
+
+            /***********/
+
+
+            function guardar() {
+
+                if (coordenadas != " ") {
+                    if (tcoord > 2) {
+                        document.getElementById("botonG").disabled = false;
+                        document.getElementById("botonG").className = 'botonAct';
+                        document.getElementById("btnIni").disabled = 'true';
+                        document.getElementById("botonPC").className = 'myButton';
+                        crearpath();
+                        //Si se han obtenido coordenadas se muestra una vista previa del potrero obtenido.
+                        var nombPot = prompt("Ingrese Nombre del Potrero", "");
+                        if (nombPot != null) {
+                            relocate('agregarPotrero.php', {'Coordenadas': coordenadas, 'Estado': "SinCultivo", 'Superficie': area, 'Nombre': nombPot});
+                        }
+                    } else {
+                        alert("Se registraron solo " + tcoord + " coordenadas, un Potrero debe contar con al menos 3 coordenadas.");
+                    }
+                } else {
+                    alert("No se guardaron Coordenadas, iniciar el proceso nuevamente.");
+                    document.getElementById("btnIni").className = 'botonAct';
+                    document.getElementById("botonPC").className = 'myButton';
+                }
+
+            }
+
+            /*********/
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            function crearpath() {
+                var polygonBounds = predio.getPath();
+                coordenadas = "";
+                var xy;
+                // Iterate over the polygonBounds vertices.
+                for (var i = 0; i < polygonBounds.length; i++) {
+                    xy = polygonBounds.getAt(i);
+
+                    coordenadas = coordenadas + " " + xy.lat() + " " + xy.lng();
+                }
+
+                area = google.maps.geometry.spherical.computeArea(predio.getPath());
+
+            }
+
+            function relocate(page, params)
+            {
+                var body = document.body;
+                form = document.createElement('form');
+                form.method = 'POST';
+                form.action = page;
+                form.name = 'jsform';
+                for (index in params)
+                {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = index;
+                    input.id = index;
+                    input.value = params[index];
+                    form.appendChild(input);
+                }
+                body.appendChild(form);
+                form.submit();
+            }
+
+        </script>
+        <script>
+
+            $(document).ready(function () {
+
+                var altura = $("div").offset().top;
+
+                $(window).scroll(function () {
+
+                    if ($(window).scrollTop() >= altura) {
+
+                        $("#divRelleno").css("width", "100%");
+                        $("#divRelleno").css("position", "fixed");
+
+                    } else {
+                        $("#divRelleno").css("width", "100%");
+                        $("#divRelleno").css("position", "static");
+
+                    }
+
+                });
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <div style="background-color:transparent; color:#FFF; z-index:1; position: fixed; width:100%" align="center"> 
+            <a  id="btnIni"   href="#" onClick="Iniciar()"            class="botonAct" >INICIAR</a>
+            <a  id="botonPC"  href="#" onClick="registrarPosicion()"  class="myButton" >REGISTRAR</a>
+            <a  id="botonG"   href="#" onClick="guardar()"            class="myButton" disabled='true' >GUARDAR</a>          
+        </div>
+        <a  id="volver" style="display:block;z-index:5;position: absolute; top:90%; left:85; " href="../../menuIni.php" >- VOLVER A INICIO</a>
+        <div id = 'mapa' style="top:0px" >   </div>
+    </body>
+</html>
